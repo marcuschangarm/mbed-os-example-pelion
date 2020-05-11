@@ -601,6 +601,25 @@
             "storage.storage_type"                      : "TDB_INTERNAL",
             "storage_tdb_internal.internal_base_address": "(MBED_ROM_START + 32*1024)",
             "storage_tdb_internal.internal_size"        : "(32*2*1024)"
+        },
+        "CY8CPROTO_062_4343W": {
+            "target.macros_add"                         : ["ARM_UC_DELTAPAAL_WRITE_BUF_SIZE=512"],
+            "target.components_add"                     : ["QSPIF"],
+            "target.components_remove"                  : ["CM0P_SLEEP"],
+            "target.network-default-interface-type"     : "WIFI",
+            "target.bootloader_supported"               : 1,
+            "target.bootloader_img"                     : "bootloader/mbed-bootloader-cy8cproto_062_434w-qspi-rot-v4.3.1.bin",
+            "target.header_offset"                      : "0x20000",
+            "target.app_offset"                         : "0x20400",
+            "update-client.bootloader-details"          : "0x10010b9c",
+            "update-client.application-details"         : "0x10020000",
+            "update-client.storage-address"             : "0x0",
+            "update-client.storage-size"                : "0x1D0000",
+            "update-client.storage-page"                : 512,
+            "mbed-cloud-client.update-storage"          : "ARM_UCP_FLASHIAP_BLOCKDEVICE",
+            "storage_tdb_internal.internal_base_address": "0x101E0000",
+            "storage_tdb_internal.internal_size"        : "0x20000",
+            "storage.storage_type"                      : "TDB_INTERNAL"
         }
     },
     "config": {

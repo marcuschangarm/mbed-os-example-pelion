@@ -22,6 +22,7 @@
 #include "factory_configurator_client.h"       // Required for fcc_* functions and FCC_* defines
 #include "m2mresource.h"                       // Required for M2MResource
 #include "key_config_manager.h"                // Required for kcm_factory_reset
+#include "DeviceKey.h"                         // Required for Root-of-Trust for external storage
 
 #include "mbed-trace/mbed_trace.h"             // Required for mbed_trace_*
 
@@ -198,6 +199,12 @@ int main(void)
     if (status != FCC_STATUS_SUCCESS && status != FCC_STATUS_KCM_FILE_EXIST_ERROR && status != FCC_STATUS_CA_ERROR) {
         printf("fcc_developer_flow() failed with %d\n", status);
         return -1;
+    }
+
+    // Generate random RoT if not already present in KV store.
+    status = DeviceKey::get_instance().generate_root_of_trust(DEVICE_KEY_16BYTE);
+    if (status != DEVICEKEY_SUCCESS && status != DEVICEKEY_ALREADY_EXIST) {
+        printf("DeviceKey::generate_root_of_trust failed with %d\n", status);
     }
 
 #ifdef MBED_CLOUD_CLIENT_SUPPORT_UPDATE
