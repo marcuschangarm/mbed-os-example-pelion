@@ -23,6 +23,7 @@
 #include "m2mresource.h"                       // Required for M2MResource
 #include "key_config_manager.h"                // Required for kcm_factory_reset
 #include "DeviceKey.h"                         // Required for Root-of-Trust for external storage
+#include "tensor_thread.h"
 
 #include "mbed-trace/mbed_trace.h"             // Required for mbed_trace_*
 
@@ -275,6 +276,9 @@ int main(void)
 
     t.start(callback(&queue, &EventQueue::dispatch_forever));
     queue.call_every(5000, value_increment);
+
+    tensor_thread_init();
+    tensor_thread_start();
 
     // Flush the stdin buffer before reading from it
     flush_stdin_buffer();

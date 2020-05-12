@@ -604,7 +604,7 @@
         },
         "CY8CPROTO_062_4343W": {
             "target.macros_add"                         : ["ARM_UC_DELTAPAAL_WRITE_BUF_SIZE=512"],
-            "target.components_add"                     : ["QSPIF"],
+            "target.components_add"                     : ["QSPIF", "MICRO_SPEECH"],
             "target.components_remove"                  : ["CM0P_SLEEP"],
             "target.network-default-interface-type"     : "WIFI",
             "target.bootloader_supported"               : 1,
