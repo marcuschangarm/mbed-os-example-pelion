@@ -604,8 +604,8 @@
         },
         "CY8CPROTO_062_4343W": {
             "target.macros_add"                         : ["ARM_UC_DELTAPAAL_WRITE_BUF_SIZE=512"],
-            "target.components_add"                     : ["QSPIF", "MICRO_SPEECH"],
-            "target.components_remove"                  : ["CM0P_SLEEP"],
+            "target.components_add"                     : ["QSPIF", "MICRO_SPEECH", "CUSTOM_DESIGN_MODUS"],
+            "target.components_remove"                  : ["CM0P_SLEEP", "BSP_DESIGN_MODUS"],
             "target.network-default-interface-type"     : "WIFI",
             "target.bootloader_supported"               : 1,
             "target.bootloader_img"                     : "bootloader/mbed-bootloader-cy8cproto_062_434w-qspi-rot-v4.3.1.bin",
